@@ -1,0 +1,7 @@
+from django import forms
+from django.forms import ModelForm
+from .models import Toners
+class TonerForm(forms.ModelForm):
+    class Meta:
+        model = Toners
+        fields = ('branch','tonermodels','reading')

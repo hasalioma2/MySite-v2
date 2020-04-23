@@ -1,0 +1,45 @@
+{% extends 'layout.html' %} {% load crispy_forms_tags %} {% block title %}
+Toners {% endblock title %} {% block content %}
+
+<div>
+  <h1>Welcome !!!</h1>
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Dispatch a Toner</h3>
+      <form action="" method="POST">
+        {% csrf_token %} {{form|crispy}}
+        <input type="submit" value="Submit" class="btn btn-sm btn-info" />
+      </form>
+    </div>
+    <div class="col-sm-8">
+      <h3>List of toners Dispatched</h3>
+      <table class="table">
+        <tr>
+            <th><input type="text" placeholder="Search Branch.." class="form-control" span="4"></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        <tr>
+          <th>Branch</th>
+          <th>Toner Model</th>
+          <th>Reading</th>
+          <th>Date Sent</th>
+          <th>Date Created by</th>
+        </tr>
+        {% for toner in toners %}
+        <tr>
+          <td>{{toner.branch}}</td>
+          <td>{{toner.tonermodels}}</td>
+          <td>{{toner.reading}}</td>
+          <td>{{toner.created_on}}</td>
+          <td>{{toner.created_by}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
