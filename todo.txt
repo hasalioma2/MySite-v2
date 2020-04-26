@@ -1,3 +1,4 @@
->add search functionality
->add Pagination.
->add Domain Authentication.
+>add search functionality(done)
+>add Pagination.(done)
+Add regular Authentication.(done)
+>add Domain Authentication.(pending)

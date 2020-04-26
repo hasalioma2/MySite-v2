@@ -27,6 +27,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'toners',
     'crispy_forms',
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -44,7 +49,7 @@ ROOT_URLCONF = 'naivas.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,7 +96,7 @@ DATABASES = {
 #         }
 #     } 
 # }
-
+SITE_ID = 1
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -110,8 +115,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+AUTHENTICATION_BACKENDS = (
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
-
+LOGIN_REDIRECT_URL =('/')
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
