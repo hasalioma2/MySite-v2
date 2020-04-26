@@ -2,31 +2,37 @@
 Toners {% endblock title %} {% block content %}
 
 <div>
-  <h1>Welcome !!!</h1>
-  <div class="row">
+
+  <h1 class="text-center"> TONERS </h1>
+  <div class="row" style="font-family: 'Baloo Bhaina 2', cursive;">
     <div class="col-sm-4">
-      <h3>Dispatch a Toner</h3>
+      <h3 class="text-center">Dispatch a Toner</h3>
       <form action="" method="POST">
         {% csrf_token %} {{form|crispy}}
         <input type="submit" value="Submit" class="btn btn-sm btn-info" />
       </form>
+
+      <hr style="color: green;">
+
+      {% if user.is_superuser %}
+      <h2>Create a New Branch</h2>
+      <form action="" method="POST">
+        {% csrf_token %} {{form2|crispy}}
+        <input type="submit" value="Submit" class="btn btn-sm btn-info" />
+      </form>
+      {% endif %}
     </div>
-    <div class="col-sm-8">
-      <h3>List of toners Dispatched</h3>
+    <div class="col-sm-8" id="replaceable-content">
+      <h3 class="text-center">List of toners Dispatched</h3>
+      {% if toners %}
+
       <table class="table">
-        <tr>
-            <th><input type="text" placeholder="Search Branch.." class="form-control" span="4"></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
         <tr>
           <th>Branch</th>
           <th>Toner Model</th>
           <th>Reading</th>
           <th>Date Sent</th>
-          <th>Date Created by</th>
+          <th>Time Since</th>
         </tr>
         {% for toner in toners %}
         <tr>
@@ -34,12 +40,16 @@ Toners {% endblock title %} {% block content %}
           <td>{{toner.tonermodels}}</td>
           <td>{{toner.reading}}</td>
           <td>{{toner.created_on}}</td>
-          <td>{{toner.created_by}}</td>
+          <td>{{toner.created_on|timesince }}</td>
         </tr>
         {% endfor %}
       </table>
+
+      {% else %}
+      <p>No Toners sent to That Branch Yet.</p>
+      {% endif %}
+
     </div>
   </div>
 </div>
-
 {% endblock content %}

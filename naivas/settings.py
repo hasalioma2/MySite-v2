@@ -63,34 +63,34 @@ WSGI_APPLICATION = 'naivas.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-
 DATABASES = {
-'default': {
-        'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'SiteV2',
-        'USER': 'sa',
-        'PASSWORD': 'Naivas@1',
-        'HOST': '192.168.254.22',
-        'PORT': '',
-        'OPTIONS': {
-            'driver': 'SQL Server Native Client 11.0',
-            'MARS_Connection': 'True',
-            'host_is_server': True,
-            'MultipleActiveResultSets': True,
-            'Encrypt': True,
-            'TrustServerCertificate': False,
-            'Persist Security Info': False,
-            'Connection Timeout': 30,
-        }
-    } 
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+
+
+# DATABASES = {
+# 'default': {
+#         'ENGINE': 'sql_server.pyodbc',
+#         'NAME': 'SiteV2',
+#         'USER': 'sa',
+#         'PASSWORD': 'Naivas@1',
+#         'HOST': '192.168.254.22',
+#         'PORT': '',
+#         'OPTIONS': {
+#             'driver': 'SQL Server Native Client 11.0',
+#             'MARS_Connection': 'True',
+#             'host_is_server': True,
+#             'MultipleActiveResultSets': True,
+#             'Encrypt': True,
+#             'TrustServerCertificate': False,
+#             'Persist Security Info': False,
+#             'Connection Timeout': 30,
+#         }
+#     } 
+# }
 
 
 # Password validation
@@ -117,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
