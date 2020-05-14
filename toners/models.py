@@ -27,7 +27,7 @@ class Toners(models.Model):
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
     tonermodels = models.ForeignKey(Tonermodels, on_delete=models.CASCADE,)
     reading = models.IntegerField()
-    created_on = models.DateTimeField(default=timezone.now())
+    created_on = models.DateTimeField(default=timezone.now)
     created_by = models.ForeignKey(User,editable=False,null=True,blank=True, on_delete=models.DO_NOTHING)
     class Meta:
       verbose_name_plural = "Toners"

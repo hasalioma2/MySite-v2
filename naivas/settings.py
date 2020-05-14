@@ -79,10 +79,10 @@ DATABASES = {
 # DATABASES = {
 # 'default': {
 #         'ENGINE': 'sql_server.pyodbc',
-#         'NAME': 'SiteV2',
+#         'NAME': 'Django',
 #         'USER': 'sa',
 #         'PASSWORD': 'Naivas@1',
-#         'HOST': '192.168.254.22',
+#         'HOST': '127.0.0.1',
 #         'PORT': '',
 #         'OPTIONS': {
 #             'driver': 'SQL Server Native Client 11.0',
