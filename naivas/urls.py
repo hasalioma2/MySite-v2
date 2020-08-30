@@ -20,5 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('toners.urls')),
     
+    path('laptops/', include('laptop.urls'), name='laptops'),
+    
     path('accounts/', include('allauth.urls')),
 ]
