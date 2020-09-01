@@ -19,5 +19,5 @@ class LaptopForm(forms.ModelForm):
         model = Laptop
         department = forms.ModelChoiceField(queryset=Department.objects.all())
         laptopmodel = forms.ModelChoiceField(queryset=Laptopmodel.objects.all())
-        fields = ('department', 'laptopmodel', 'user', 'serialno', 'barcode')
+        fields = ('department', 'laptopmodel', 'user', 'serialno', 'barcode', 'macadress')
 

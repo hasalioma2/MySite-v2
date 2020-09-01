@@ -43,7 +43,7 @@ Laptops {% endblock title %} {% block content %}
           <th>Model</th>
           <th>serialno</th>
           <th>barcode</th>
-          <th>Date Sent</th>
+          <th>MAC Adress</th>
           <th>Time Since</th>
         </tr>
         {% for laptop in page_obj %}
@@ -53,7 +53,7 @@ Laptops {% endblock title %} {% block content %}
           <td>{{laptop.laptopmodel}}</td>
           <td>{{laptop.serialno}}</td>
           <td>{{laptop.barcode}}</td>
-          <td>{{laptop.created_on}}</td>
+          <td>{{laptop.macadress}}</td>
           <td>{{laptop.created_on|timesince }}</td>
         </tr>
         {% endfor %}
