@@ -26,6 +26,7 @@ class Laptop(models.Model):
     user = models.CharField(max_length=100)
     serialno = models.CharField(max_length=100, unique=True)
     barcode = models.CharField(max_length=100, unique=True)
+    macadress = models.CharField(max_length=100, unique=True)
     created_on = models.DateTimeField(default=timezone.now)
     
     class Meta:

@@ -14,9 +14,9 @@ from .forms import DepartmentForm,LaptopmodelForm, LaptopForm
 def laptops(request):
     url_parameter = request.GET.get("q")
     if url_parameter:
-        laptop=Laptop.objects.filter(user__icontains = url_parameter).order_by('id').reverse()
-        laptop=Laptop.objects.filter(Q(user__icontains=url_parameter) | Q(barcode__icontains=url_parameter)).order_by('id').reverse()
-        paginator = Paginator(laptop,10)
+        # laptop=Laptop.objects.filter(user__icontains = url_parameter).order_by('id').reverse()
+        laptop=Laptop.objects.filter(Q(user__icontains=url_parameter) | Q(barcode__icontains=url_parameter) | Q(department__name__icontains=url_parameter)).order_by('id').reverse()
+        paginator = Paginator(laptop,100)
     else:
         laptop=Laptop.objects.all().order_by('id').reverse()
         paginator = Paginator(laptop,10)    
